@@ -140,22 +140,22 @@ describe('parseDirection', () => {
   });
 
   it('filters out __owner__ pseudo-cat from @mention results (P1-2)', () => {
-    // getMentionToCat maps @landy/@铲屎官 to __owner__ — must not leak into UI
+    // getMentionToCat maps @owner/@owner to __owner__ — must not leak into UI
     const ownerToCat: Record<string, string> = {
       ...mockToCat,
       landy: '__owner__',
-      铲屎官: '__owner__',
+      owner: '__owner__',
     };
     const ownerAliases = Object.keys(ownerToCat).sort((a, b) => b.length - a.length);
     const ownerRe = new RegExp(`@(${ownerAliases.join('|')})(?=$|\\s|[,.:;!?])`, 'gi');
     const getOwnerMocks = () => ({ toCat: ownerToCat, re: ownerRe });
 
-    // Only @landy → should return null (owner filtered out)
-    const msg1 = { origin: 'callback' as const, content: '通知铲屎官\n@landy' };
+    // Only @owner → should return null (owner filtered out)
+    const msg1 = { origin: 'callback' as const, content: '通知owner\n@owner' };
     expect(parseDirection(msg1, getOwnerMocks)).toBeNull();
 
-    // @landy + @codex → only codex in targets
-    const msg2 = { origin: 'callback' as const, content: '@landy @codex' };
+    // @owner + @codex → only codex in targets
+    const msg2 = { origin: 'callback' as const, content: '@owner @codex' };
     const result = parseDirection(msg2, getOwnerMocks);
     expect(result?.targets).toEqual(['codex']);
   });

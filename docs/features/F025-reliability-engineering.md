@@ -12,7 +12,6 @@ created: 2026-02-26
 > **Created**: 2026-02-26
 
 ## Why
-- [2026-02-14 情人节聊天](./archive/2026-02/mailbox/2026-02-14/2026-02-14-valentines-day-cat-chat-meeting-minutes.md)
 
 ## What
 - **F25**: PR #21 (d366ad5) — 三件事全部完成：(1) 4ab5b47 状态机规格 + fast-check property tests；(2) 7340176 并发演练 + evidence gate；(3) 竞态守护。1327 tests 全绿。

@@ -192,7 +192,7 @@ describe('buildDevLoopSummary', () => {
     assert.ok(summary.includes('Fix bug'));
     assert.ok(summary.includes('1 轮'));
     assert.ok(summary.includes('无 P3'));
-    assert.ok(!summary.includes('待铲屎官'));
+    assert.ok(!summary.includes('待owner'));
   });
 
   it('includes cat info', () => {

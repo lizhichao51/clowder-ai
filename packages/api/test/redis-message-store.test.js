@@ -237,7 +237,7 @@ describe('RedisMessageStore', { skip: !REDIS_URL ? 'REDIS_URL not set' : false }
     const msg = await store.append({
       userId: 'u',
       catId: 'opus',
-      content: '@铲屎官 看看这个',
+      content: '@owner 看看这个',
       mentions: ['opus'],
       timestamp: Date.now(),
       threadId: 'thread-mention-user',

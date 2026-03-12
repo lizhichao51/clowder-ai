@@ -4,7 +4,7 @@
  *
  * 两个入口：
  * - onInvocationComplete（系统级）：invocation 完成后调用，succeeded 时自动出队
- * - processNext（用户级）：铲屎官手动触发处理自己的下一条
+ * - processNext（用户级）：owner手动触发处理自己的下一条
  */
 
 import type { QueueEntry, InvocationQueue } from './InvocationQueue.js';
@@ -140,7 +140,7 @@ export class QueueProcessor {
   }
 
   /**
-   * User-level entry: 铲屎官 manually triggers processing their next entry.
+   * User-level entry: owner manually triggers processing their next entry.
    */
   async processNext(
     threadId: string,

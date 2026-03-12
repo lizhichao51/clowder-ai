@@ -12,7 +12,6 @@ created: 2026-02-26
 > **Created**: 2026-02-26
 
 ## Why
-- [brainstorm 2026-02-10](./archive/2026-02/discussions/2026-02-10-feature-backlog-brainstorm/README.md)
 
 ## What
 - **F13**: 已完成：操作审计（追责）+ CLI 原始日志归档（debug）。计划文档: 2026-02-10-f13-audit-log-v2.md

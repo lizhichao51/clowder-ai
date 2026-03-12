@@ -3,16 +3,16 @@ import assert from 'node:assert/strict';
 import { detectUserMention } from '../dist/routes/user-mention.js';
 
 describe('detectUserMention', () => {
-  it('detects @铲屎官 at line start', () => {
-    assert.equal(detectUserMention('请看这个\n@铲屎官\n帮忙确认'), true);
+  it('detects @owner at line start', () => {
+    assert.equal(detectUserMention('请看这个\n@owner\n帮忙确认'), true);
   });
 
   it('detects @user at line start', () => {
     assert.equal(detectUserMention('@user 请帮忙看看'), true);
   });
 
-  it('ignores @铲屎官 in middle of line', () => {
-    assert.equal(detectUserMention('告诉@铲屎官这件事'), false);
+  it('ignores @owner in middle of line', () => {
+    assert.equal(detectUserMention('告诉@owner这件事'), false);
   });
 
   it('ignores @user inside code block', () => {
@@ -24,7 +24,7 @@ describe('detectUserMention', () => {
   });
 
   it('handles leading whitespace before @user', () => {
-    assert.equal(detectUserMention('  @铲屎官 看看'), true);
+    assert.equal(detectUserMention('  @owner 看看'), true);
   });
 
   it('returns false for empty string', () => {
@@ -37,11 +37,11 @@ describe('detectUserMention', () => {
   });
 
   it('handles multiple code blocks correctly', () => {
-    assert.equal(detectUserMention('```js\n@user\n```\n普通文本\n```\n@铲屎官\n```'), false);
+    assert.equal(detectUserMention('```js\n@user\n```\n普通文本\n```\n@owner\n```'), false);
   });
 
-  it('detects @铲屎官 after code block', () => {
-    assert.equal(detectUserMention('```\ncode\n```\n@铲屎官 看看'), true);
+  it('detects @owner after code block', () => {
+    assert.equal(detectUserMention('```\ncode\n```\n@owner 看看'), true);
   });
 
   it('OQ-1: rejects @user123 (token boundary)', () => {
@@ -60,16 +60,16 @@ describe('detectUserMention', () => {
     assert.equal(detectUserMention('@user'), true);
   });
 
-  it('OQ-1: accepts @铲屎官 followed by space', () => {
-    assert.equal(detectUserMention('@铲屎官 检查一下'), true);
+  it('OQ-1: accepts @owner followed by space', () => {
+    assert.equal(detectUserMention('@owner 检查一下'), true);
   });
 
   it('R2-P2: accepts @user followed by CJK text (no space)', () => {
     assert.equal(detectUserMention('@user请看'), true);
   });
 
-  it('R2-P2: accepts @铲屎官 followed by CJK text (no space)', () => {
-    assert.equal(detectUserMention('@铲屎官请看'), true);
+  it('R2-P2: accepts @owner followed by CJK text (no space)', () => {
+    assert.equal(detectUserMention('@owner请看'), true);
   });
 
   it('R2-P2: still rejects @user followed by ASCII letter', () => {
@@ -77,24 +77,24 @@ describe('detectUserMention', () => {
   });
 
   // F067 owner-config: configured mention patterns
-  it('detects configured owner @landy at line start', () => {
-    assert.equal(detectUserMention('@landy 请看'), true);
+  it('detects configured owner @owner at line start', () => {
+    assert.equal(detectUserMention('@owner 请看'), true);
     assert.equal(detectUserMention('@Landy 请看'), true);
   });
 
-  it('detects configured owner @lysander at line start', () => {
-    assert.equal(detectUserMention('@lysander 帮忙确认'), true);
+  it('detects configured owner @owner at line start', () => {
+    assert.equal(detectUserMention('@owner 帮忙确认'), true);
   });
 
-  it('detects configured owner @l.s. at line start', () => {
-    assert.equal(detectUserMention('@l.s. 看看'), true);
+  it('detects configured owner @owner at line start', () => {
+    assert.equal(detectUserMention('@owner 看看'), true);
   });
 
-  it('rejects @landy continuation (e.g. @landyFoo)', () => {
-    assert.equal(detectUserMention('@landyFoo not a mention'), false);
+  it('rejects @owner continuation (e.g. @ownerFoo)', () => {
+    assert.equal(detectUserMention('@ownerFoo not a mention'), false);
   });
 
-  it('accepts @landy followed by CJK text', () => {
-    assert.equal(detectUserMention('@landy请看'), true);
+  it('accepts @owner followed by CJK text', () => {
+    assert.equal(detectUserMention('@owner请看'), true);
   });
 });

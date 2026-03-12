@@ -130,7 +130,7 @@ Cat Café 的治理结构分为三层：
 ### D. 教训与反思层
 
 - `docs/lessons-learned.md`
-- `docs/archive/2026-02/mailbox/2026-02-13/2026-02-13-lessons-learned-kickoff-to-codex.md`
+- *(internal reference removed)*
 
 关键映射：
 

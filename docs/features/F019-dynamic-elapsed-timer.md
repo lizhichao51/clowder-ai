@@ -12,7 +12,6 @@ created: 2026-02-26
 > **Created**: 2026-02-26
 
 ## Why
-- [ux-polish 2026-02-10](./archive/2026-02/discussions/2026-02-10-ux-polish-brainstorm/README.md)
 
 ## What
 - **F19**: useElapsedTime hook (100ms)，顶部 + 右侧面板动态显示。Maine Coon review 通过。

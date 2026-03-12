@@ -12,7 +12,6 @@ created: 2026-02-26
 > **Created**: 2026-02-26
 
 ## Why
-- [skills 调研 2026-02-25](./discussions/2026-02-25-f38-skills-discovery/README.md)
 
 ## What
 - **F38**: 当前：方向 A（分类标记），skill bug 已修（项目级 .claude/skills/ symlinks 5257e1c）。未来：方向 B（类 ToolSearch 延迟加载，BM25/regex，触发条件 skills 50+）。ToolSearch 不用向量数据库，用 BM25 词频排序。team lead决策：simple is better, build when you need。

@@ -161,7 +161,7 @@ describe('RedisThreadReadStateStore', { skip: !REDIS_URL ? 'REDIS_URL not set' :
   it('getUnreadSummaries() detects mentionsUser', async () => {
     const tid = uniqueId('t');
     const m1 = await messageStore.append({ userId: 'user1', catId: 'opus', content: 'hello', mentions: [], timestamp: Date.now() - 2000, threadId: tid });
-    await messageStore.append({ userId: 'user1', catId: 'opus', content: '@铲屎官 look', mentions: [], mentionsUser: true, timestamp: Date.now() - 1000, threadId: tid });
+    await messageStore.append({ userId: 'user1', catId: 'opus', content: '@owner look', mentions: [], mentionsUser: true, timestamp: Date.now() - 1000, threadId: tid });
 
     await store.ack('user1', tid, m1.id);
 

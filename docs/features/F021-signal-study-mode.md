@@ -13,8 +13,6 @@ created: 2026-02-26
 > **Completed**: 2026-03-10
 
 ## Why
-- [讨论 2026-02-12](./archive/2026-02/discussions/2026-02-12-signal-hunter-upgrade/README.md)
-- [feat 采访 2026-02-26](./plans/2026-02-26-f21-study-mode-design.md)
 
 ## What
 - **F21**: 每日自动抓取 AI 技术信源 + 邮件日报 + 和猫猫深度学习。合并 Signal Hunter 到 Cat Café，launchd 定时 + 50+ 信源 + on/off 开关 + Hindsight 洞察存储。计划: 2026-02-12-signal-hunter-integration.md，Maine Coon调研: signal-hunter.md。S1~S6 全部完成，Maine Coon多轮 review 放行。信源补全 3→45 源 + 手动 Fetch 端点 + GitHub PAT 自动注入。已全部合入 main。

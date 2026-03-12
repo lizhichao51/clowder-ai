@@ -12,7 +12,6 @@ created: 2026-02-26
 > **Created**: 2026-02-26
 
 ## Why
-- [brainstorm 2026-02-10](./archive/2026-02/discussions/2026-02-10-feature-backlog-brainstorm/README.md)
 
 ## What
 - **F12**: 43f88ca + 7b03236 — Cat Café Hub modal（功能注册表 + 环境摘要 + /hub 命令）。已合入 main。

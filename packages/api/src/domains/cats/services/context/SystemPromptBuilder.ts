@@ -71,7 +71,7 @@ export interface InvocationContext {
   };
   /**
    * F091: Active Signal articles in discussion context.
-   * Injected when 铲屎官 links a Signal article in the thread.
+   * Injected when owner links a Signal article in the thread.
    */
   activeSignals?: readonly {
     readonly id: string;
@@ -215,7 +215,7 @@ When the user asks to say/show/present something richly, consider rich blocks (a
  * Design decision: inject compact L0 digest, not full text. See F086 spec.
  */
 const GOVERNANCE_L0_DIGEST = `## 家规（shared-rules.md）
-原则：P1每步产物是终态基座不是脚手架 P2自主跑完SOP不每步问铲屎官（SOP写了下一步→直接做，不问；方向不确定/阻塞→才升级） P3方向正确>速度 P4每个概念只在一处定义 P5可验证才算完成
+原则：P1每步产物是终态基座不是脚手架 P2自主跑完SOP不每步问owner（SOP写了下一步→直接做，不问；方向不确定/阻塞→才升级） P3方向正确>速度 P4每个概念只在一处定义 P5可验证才算完成
 世界观：W1猫是Agent不是API W2共享才成团队 W3用户是CVO W4不随地大小便（文件放对目录） W5只回流方法论不回流数据 W6教训追到根因
 纪律：不冒充其他猫 | 实事求是——结论基于多源证据（代码+commit+PR+文档），顺藤摸瓜查完再下判断，不够就说"还没查完" | @是路由指令——发前问"到我这里结束了吗？" | runtime禁止擅自重启 | 团队用"我们"不用"你们" | BACKLOG等共享状态只在main改，改完立刻commit push | 跨thread阻塞依赖必须双写到可追溯状态（feature doc/workflow/task），消息不是真相源
 质量覆盖（对冲CLI"先简单后复杂"——方向错误的加速=浪费）：
@@ -310,7 +310,7 @@ export interface StaticIdentityOptions {
 /**
  * Build static identity prompt — persistent across invocations.
  * Includes: identity, personality, rules, A2A format, workflow triggers,
- * 铲屎官 reference, and MCP tool documentation (session-level).
+ * owner reference, and MCP tool documentation (session-level).
  * Suitable for --system-prompt / --append-system-prompt injection.
  */
 export function buildStaticIdentity(catId: CatId, options?: StaticIdentityOptions): string {
@@ -364,13 +364,13 @@ export function buildStaticIdentity(catId: CatId, options?: StaticIdentityOption
     lines.push(triggers, '');
   }
 
-  // 铲屎官 reference (session-level, not per-message)
+  // owner reference (session-level, not per-message)
   // F067: Use owner config for name + mention handles
   // Note: "不冒充/不编造/身份契约" folded into GOVERNANCE_L0_DIGEST
   const owner = getOwnerConfig();
   const ownerName = owner.name;
   const ownerHandles = owner.mentionPatterns.map((p) => `\`${p}\``).join(' / ');
-  lines.push(`${ownerName}（铲屎官/CVO）。重要决策由${ownerName}拍板。需要关注时行首写 ${ownerHandles}。`, '');
+  lines.push(`${ownerName}（owner/CVO）。重要决策由${ownerName}拍板。需要关注时行首写 ${ownerHandles}。`, '');
 
   // L0 Governance Digest — always-on principles from shared-rules.md (F086 post-completion fix)
   // Source of truth: cat-cafe-skills/refs/shared-rules.md
@@ -389,7 +389,7 @@ export function buildStaticIdentity(catId: CatId, options?: StaticIdentityOption
 /**
  * Build dynamic invocation context — changes per call.
  * Includes: teammates, mode, chain position, prompt tags.
- * (MCP tools and 铲屎官 reference moved to buildStaticIdentity for session-level injection.)
+ * (MCP tools and owner reference moved to buildStaticIdentity for session-level injection.)
  */
 export function buildInvocationContext(context: InvocationContext): string {
   const config = getConfig(context.catId as string);
@@ -515,9 +515,9 @@ export function buildInvocationContext(context: InvocationContext): string {
   // F092: Voice companion mode — instruct cats to prioritize audio output
   if (context.voiceMode) {
     lines.push(
-      '🎙️ Voice Mode ON: 铲屎官正在语音陪伴模式（AirPods，双手不空）。',
+      '🎙️ Voice Mode ON: owner正在语音陪伴模式（AirPods，双手不空）。',
       '- 每条回复用 audio rich block 发语音（call get_rich_block_rules if unsure）',
-      '- 文字是给日志看的，语音才是给铲屎官耳朵的输出',
+      '- 文字是给日志看的，语音才是给owner耳朵的输出',
       '- 代码/表格/长内容仍用文字，但加一段语音摘要',
       '',
     );

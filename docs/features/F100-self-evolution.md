@@ -65,9 +65,6 @@ updated: 2026-03-12
 ### Phase 2
 - [x] `docs/decisions/015-knowledge-object-contract.md` — ADR-015 Knowledge Object Contract
 - [x] `docs/scope-guard-log.md` — Mode A Scope Guard Log
-- [x] `docs/evolution-proposals/TEMPLATE.md` — Mode B Evolution Proposal 模板
-- [x] `docs/episodes/TEMPLATE.md` — Mode C Episode Card 模板
-- [x] `docs/methods/TEMPLATE.md` — Mode C Method Card 模板
 - [x] `evals/mode-c/TEMPLATE/` — Mode C Eval Ledger 结构（cases/judge/summary）
 - [x] `cat-cafe-skills/self-evolution/SKILL.md` 升级（228 行，含三机制闭环+五级阶梯+元认知）
 - [x] `cat-cafe-skills/manifest.yaml` 新增 6 triggers（共 17）
@@ -109,7 +106,6 @@ Phase 2 补齐：
 Phase 1 状态：5 槽提案模板 + 4 硬护栏 + 最小杠杆排序。
 
 Phase 2 补齐：
-- **Evolution Proposal Log** (`docs/evolution-proposals/`)：每份提案独立存档，带 frontmatter 追踪
   - `{proposal_id, trigger_type, target(SOP/skill/rule), status(proposed/accepted/rejected/superseded), impact_assessment}`
 - **提案→落地闭环**：accepted 的提案必须关联到具体 commit/PR，不能停在"提了"
 - **提案效果验证**：落地 30 天后自动触发 replay check——改了这条规则后，同类错误还出现吗？
@@ -126,13 +122,11 @@ Phase 2 补齐（核心，来自四源调研 + 三猫讨论）：
 Episode Card（原料）→ Dual Distillation（蒸馏成品）→ Eval Ledger（证明净增益）
 ```
 
-1. **Episode Card** (`docs/episodes/*.md`)：高价值协作后写结构化事件快照
    - 保留 6 类协作 context：任务情境 / 证据地图 / 推理转折 / 人类提示点 / 边界与克制 / 后续动作
    - 特别保留 **Collaboration Pivots**（human cue → AI interpretation → effect → transferable lesson）
    - 触发条件（满足任两条）：高风险领域 / 输入 ≥2 类 / 人类明确认可 / 结构化方法产出 / 有效边界控制
 
 2. **Dual Distillation**：每张 Episode Card 蒸馏成两种形态之一
-   - **Method Card** (`docs/methods/*.md`)：高风险/跨领域分析框架（**不沉淀事实库**）
    - **Skill Draft** (`skills/drafts/*/SKILL.md`)：重复步骤稳定的流程型任务
    - 高风险领域一律默认 Method Card
 

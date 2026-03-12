@@ -9,7 +9,6 @@ created: 2026-03-09
 # F088 Multi-Platform Chat Gateway — 聊天平台接入网关
 
 > **Status**: Phase 1-6+A+B+C+E done, Phase D in-progress | **Owner**: Ragdoll
-> 参考: [OpenClaw](https://github.com/openclaw/openclaw) | 用户文档: [IM 接入指南](../guides/im-platform-setup.md) · [IM 使用指南](../guides/im-usage-guide.md)
 
 ## Why
 

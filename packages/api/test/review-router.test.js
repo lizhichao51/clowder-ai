@@ -311,7 +311,7 @@ describe('ReviewRouter', () => {
 
       const content = messageMock.messages[0].content;
       assert.ok(content.includes('PR #77'));
-      assert.ok(content.includes('铲屎官'));
+      assert.ok(content.includes('owner'));
     });
   });
 

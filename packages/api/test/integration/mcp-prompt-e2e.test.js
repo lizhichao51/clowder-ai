@@ -93,7 +93,7 @@ describe('MCP Prompt Injection E2E', () => {
       mentions: [], timestamp: Date.now(), threadId: 'thread-e2e',
     });
     messageStore.append({
-      userId: 'user-1', catId: 'opus', content: '你好铲屎官',
+      userId: 'user-1', catId: 'opus', content: '你好owner',
       mentions: [], timestamp: Date.now() + 1, threadId: 'thread-e2e',
     });
 

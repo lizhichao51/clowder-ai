@@ -21,14 +21,14 @@ function mockMsg(overrides) {
 }
 
 describe('formatMessage', () => {
-  test('formats user message with 铲屎官', async () => {
+  test('formats user message with owner', async () => {
     const { formatMessage } = await import(
       '../dist/domains/cats/services/context/ContextAssembler.js'
     );
     const msg = mockMsg({ content: '你好', timestamp: new Date('2026-02-07T14:02:00').getTime() });
     const result = formatMessage(msg);
     assert.ok(result.includes('14:02'));
-    assert.ok(result.includes('铲屎官'));
+    assert.ok(result.includes('owner'));
     assert.ok(result.includes('你好'));
   });
 
@@ -113,7 +113,7 @@ describe('assembleContext', () => {
     );
     const result = assembleContext([mockMsg({ content: '你好世界' })]);
     assert.ok(result.contextText.includes('[对话历史 - 最近 1 条]'));
-    assert.ok(result.contextText.includes('铲屎官'));
+    assert.ok(result.contextText.includes('owner'));
     assert.ok(result.contextText.includes('你好世界'));
     assert.ok(result.contextText.endsWith('[/对话历史]'));
     assert.equal(result.messageCount, 1);
@@ -125,11 +125,11 @@ describe('assembleContext', () => {
     );
     const msgs = [
       mockMsg({ catId: null, content: '@布偶 你好', timestamp: 1000 }),
-      mockMsg({ catId: 'opus', content: '你好铲屎官', timestamp: 2000 }),
+      mockMsg({ catId: 'opus', content: '你好owner', timestamp: 2000 }),
       mockMsg({ catId: 'codex', content: '我也在', timestamp: 3000 }),
     ];
     const result = assembleContext(msgs);
-    assert.ok(result.contextText.includes('铲屎官'));
+    assert.ok(result.contextText.includes('owner'));
     assert.ok(result.contextText.includes('布偶猫'));
     assert.ok(result.contextText.includes('缅因猫'));
     assert.equal(result.messageCount, 3);
@@ -533,8 +533,8 @@ describe('assembleContext — F8 token-based truncation', () => {
       },
     });
     const result = formatMessage(msg);
-    assert.ok(result.includes('GitHub Review'), 'should use source.label instead of 铲屎官');
-    assert.ok(!result.includes('铲屎官'), 'should NOT show 铲屎官 for connector messages');
+    assert.ok(result.includes('GitHub Review'), 'should use source.label instead of owner');
+    assert.ok(!result.includes('owner'), 'should NOT show owner for connector messages');
     assert.ok(result.includes('GitHub Review 通知'));
   });
 });

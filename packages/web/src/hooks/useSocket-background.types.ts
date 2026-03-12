@@ -22,7 +22,7 @@ export interface BackgroundAgentMessage {
   metadata?: { provider: string; model: string; sessionId?: string; usage?: TokenUsage };
   /** F52: Cross-thread origin metadata */
   extra?: { crossPost?: { sourceThreadId: string; sourceInvocationId?: string } };
-  /** F057-C2: Whether this message mentions the user (@user / @铲屎官) */
+  /** F057-C2: Whether this message mentions the user (@user / @owner) */
   mentionsUser?: boolean;
   timestamp: number;
 }

@@ -12,7 +12,6 @@ created: 2026-02-26
 > **Created**: 2026-02-26
 
 ## Why
-- [brainstorm 2026-02-10](./archive/2026-02/discussions/2026-02-10-feature-backlog-brainstorm/README.md)
 
 ## What
 - **F14**: 把 ASCII ᓚᘏᗢ 升级为三猫参数化 SVG 动画。方案 B（AI 生成 + 结构化 + CSS 动画）已确认。调研报告+执行计划: svg-frontend-research.md

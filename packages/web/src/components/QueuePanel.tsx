@@ -256,7 +256,7 @@ function QueueEntryRow({
         <div className="flex items-center gap-1 mt-0.5">
           <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#9B7EBD]" />
           <span className="text-xs text-gray-400">
-            {entry.source === 'connector' ? 'Connector' : '铲屎官'}
+            {entry.source === 'connector' ? 'Connector' : 'owner'}
           </span>
           {imageCount > 0 && (
             <span className="flex items-center gap-0.5 text-xs text-gray-400 ml-1">

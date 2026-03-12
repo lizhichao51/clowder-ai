@@ -120,4 +120,4 @@ Phase N merge → 碰头（不是"要不要继续"，是"方向对不对"）→ 
 
 - `docs/` 下 `.md` 文件必须有 YAML frontmatter（ADR-011）
 - 完成后必须同步真相源（详见 `feat-lifecycle` skill）
-- 归档查找：`docs/archive/2026-02/`
+- 归档查找：*(internal reference removed)*

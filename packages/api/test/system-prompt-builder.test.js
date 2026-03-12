@@ -76,11 +76,11 @@ describe('SystemPromptBuilder', () => {
     // Dynamic teammate listing absent, but static collaboration guide still present
     assert.ok(!prompt.includes('你的队友'));
     assert.ok(prompt.includes('@队友'));
-    // Still mentions 铲屎官
-    assert.ok(prompt.includes('铲屎官'));
+    // Still mentions owner
+    assert.ok(prompt.includes('owner'));
   });
 
-  test('contains 铲屎官 reference', async () => {
+  test('contains owner reference', async () => {
     const build = await getBuilder();
     const prompt = build({
       catId: 'opus',
@@ -88,7 +88,7 @@ describe('SystemPromptBuilder', () => {
       teammates: [],
       mcpAvailable: false,
     });
-    assert.ok(prompt.includes('铲屎官'));
+    assert.ok(prompt.includes('owner'));
   });
 
   test('contains serial chain context when mode is serial', async () => {
@@ -591,8 +591,8 @@ describe('SystemPromptBuilder', () => {
     assert.ok(!ctx.includes('## 协作'), 'Should not contain collaboration guide');
     // MCP tools moved to static identity (session-level, not per-message)
     assert.ok(!ctx.includes('cat_cafe_post_message'), 'MCP tools should be in static identity, not invocation context');
-    // 铲屎官 reference also moved to static identity
-    assert.ok(!ctx.includes('铲屎官是真人用户'), '铲屎官 reference should be in static identity');
+    // owner reference also moved to static identity
+    assert.ok(!ctx.includes('owner是真人用户'), 'owner reference should be in static identity');
   });
 
   test('buildStaticIdentity includes MCP tools when mcpAvailable', async () => {
@@ -624,12 +624,12 @@ describe('SystemPromptBuilder', () => {
     assert.ok(!identity.includes('HTTP 回调'), 'Codex should not have callback instructions in static identity');
   });
 
-  test('buildStaticIdentity includes 铲屎官 reference', async () => {
+  test('buildStaticIdentity includes owner reference', async () => {
     const { buildStaticIdentity } = await import(
       '../dist/domains/cats/services/context/SystemPromptBuilder.js'
     );
     const identity = buildStaticIdentity('opus');
-    assert.ok(identity.includes('铲屎官'), 'Should contain 铲屎官 reference in static identity');
+    assert.ok(identity.includes('owner'), 'Should contain owner reference in static identity');
   });
 
   test('buildStaticIdentity includes configured owner name and mention handles', async () => {
@@ -637,10 +637,10 @@ describe('SystemPromptBuilder', () => {
       '../dist/domains/cats/services/context/SystemPromptBuilder.js'
     );
     const identity = buildStaticIdentity('opus');
-    // Owner config has name: "Landy", mentionPatterns: ["@landy", "@l.s.", "@lysander"]
+    // Owner config has name: "Landy", mentionPatterns: ["@owner", "@owner", "@owner"]
     assert.ok(identity.includes('Landy'), 'Should include owner name from config');
-    assert.ok(identity.includes('@landy'), 'Should include @landy mention handle');
-    assert.ok(identity.includes('@lysander'), 'Should include @lysander mention handle');
+    assert.ok(identity.includes('@owner'), 'Should include @owner mention handle');
+    assert.ok(identity.includes('@owner'), 'Should include @owner mention handle');
     assert.ok(identity.includes('行首'), 'Should teach line-start rule for owner mentions');
   });
 

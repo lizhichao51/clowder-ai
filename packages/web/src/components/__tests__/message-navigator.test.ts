@@ -114,7 +114,7 @@ describe('MessageNavigator', () => {
 
     expect(html).toContain('跳转到 缅因猫（gpt52） 的消息');
 
-    const ownerLabels = html.match(/跳转到 铲屎官 的消息/g) ?? [];
+    const ownerLabels = html.match(/跳转到 owner 的消息/g) ?? [];
     expect(ownerLabels.length).toBe(1);
   });
 
@@ -139,7 +139,7 @@ describe('MessageNavigator', () => {
     ];
     const html = render(msgs);
 
-    expect(html).toContain('跳转到 铲屎官 的消息');
+    expect(html).toContain('跳转到 owner 的消息');
     expect(html).toContain('跳转到 缅因猫 的消息');
   });
 

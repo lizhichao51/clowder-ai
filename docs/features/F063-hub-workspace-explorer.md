@@ -467,11 +467,8 @@ team lead反馈（2026-03-08）："调整了右边文件栏的大小，切换走
 
 ### Gap 7: Lazy Tree Loading + Per-Thread Workspace State
 
-team lead反馈（2026-03-08）：(1) `docs/stories/hyperfocus-brake/` 明明有文件但显示为空 (2) 切换线程后文件树展开状态丢失
-
 | Task | 内容 | 优先 | 设计思路 |
 |------|------|------|----------|
-| G7-1 | **Bug**: 深层目录显示为空 — 当前 `buildTree()` 默认 depth=3，`docs/stories/xxx/` 的文件在 depth=4 未加载 | P1 | 展开目录时按需 fetch 子节点（lazy loading），不再依赖初始 depth 一次加载全部 |
 | G7-2 | 切换线程后恢复文件树展开状态 + 打开的文件标签 | P2 | 每个线程的 `expandedPaths` + `openTabs` + `openFilePath` 存到 `Map<threadId, WorkspaceState>`，切换线程时 save/restore |
 
 ## Known Bugs (Follow-up)

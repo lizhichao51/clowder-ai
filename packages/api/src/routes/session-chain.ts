@@ -169,7 +169,7 @@ export async function sessionChainRoutes(
   });
 
   // PATCH /api/threads/:threadId/sessions/:catId/bind — Manual bind (#72)
-  // Allows 铲屎官 to bind a known-good CLI session ID to a cat's thread session.
+  // Allows owner to bind a known-good CLI session ID to a cat's thread session.
   // If active session exists → update cliSessionId; otherwise → create new session.
   app.patch<{
     Params: { threadId: string; catId: string };

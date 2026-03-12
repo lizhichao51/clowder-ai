@@ -3,7 +3,7 @@
  * Used by GET /api/config/env-summary to report current values to the frontend.
  *
  * ⚠️  ALL CATS: 新增 process.env.XXX → 必须在下方 ENV_VARS 数组注册！
- *    不注册 = 前端「环境 & 文件」页面看不到 = 铲屎官不知道 = 不存在。
+ *    不注册 = 前端「环境 & 文件」页面看不到 = owner不知道 = 不存在。
  *    SOP.md「环境变量注册」章节有说明。
  *
  * To add a new env var:
@@ -137,7 +137,7 @@ export const ENV_VARS: EnvDefinition[] = [
   { name: 'FEISHU_VERIFICATION_TOKEN', defaultValue: '(未设置)', description: '飞书 webhook 验证 token', category: 'connector', sensitive: true },
 
   // --- hindsight ---
-  { name: 'HINDSIGHT_ENABLED', defaultValue: 'true', description: '是否启用 Hindsight 检索/反思/写入', category: 'hindsight', sensitive: false },
+  { name: 'HINDSIGHT_ENABLED', defaultValue: 'false', description: '是否启用 Hindsight 检索/反思/写入', category: 'hindsight', sensitive: false },
   { name: 'HINDSIGHT_URL', defaultValue: 'http://localhost:18888', description: 'Hindsight 服务地址', category: 'hindsight', sensitive: false },
   { name: 'HINDSIGHT_REFLECT_DISPOSITION_MODE', defaultValue: '(默认)', description: 'Reflect 处置模式', category: 'hindsight', sensitive: false },
   { name: 'HINDSIGHT_RECALL_DEFAULT_BUDGET', defaultValue: 'mid', description: 'Recall 默认预算', category: 'hindsight', sensitive: false },

@@ -12,7 +12,6 @@ created: 2026-02-26
 > **Created**: 2026-02-26
 
 ## Why
-- [ux-polish 2026-02-10](./archive/2026-02/discussions/2026-02-10-ux-polish-brainstorm/README.md)
 
 ## What
 - **F18**: 可收起/展开，收起时 2s 滚动 + fade-in 动画。Maine Coon review 通过。

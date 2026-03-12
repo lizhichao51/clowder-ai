@@ -12,7 +12,6 @@ created: 2026-02-26
 > **Created**: 2026-02-26
 
 ## Why
-- [ux-polish 2026-02-10](./archive/2026-02/discussions/2026-02-10-ux-polish-brainstorm/README.md)
 
 ## What
 - **F17**: Chrome headless 导出。Maine Coon 3 轮 review 通过（R1 路径 + R2 安全/构建/性能 + R3 system thread）。设计: 2026-02-10-f19-f18-f17-ux-polish.md

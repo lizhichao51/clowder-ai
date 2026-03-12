@@ -41,7 +41,7 @@ describe('formatThreadAsMarkdown', () => {
     const thread = makeThread({ title: '第一次测试', participants: ['opus'] });
     const messages = [
       makeMessage({ content: '你好布偶猫', timestamp: new Date('2026-02-07T10:30:00').getTime() }),
-      makeMessage({ catId: 'opus', content: '你好铲屎官！', timestamp: new Date('2026-02-07T10:31:00').getTime(), id: 'msg-2' }),
+      makeMessage({ catId: 'opus', content: '你好owner！', timestamp: new Date('2026-02-07T10:31:00').getTime(), id: 'msg-2' }),
     ];
 
     const md = formatThreadAsMarkdown(thread, messages);
@@ -50,8 +50,8 @@ describe('formatThreadAsMarkdown', () => {
     assert.ok(md.includes('thread-1'));
     assert.ok(md.includes('布偶猫'));
     assert.ok(md.includes('你好布偶猫'));
-    assert.ok(md.includes('你好铲屎官！'));
-    assert.ok(md.includes('铲屎官'));
+    assert.ok(md.includes('你好owner！'));
+    assert.ok(md.includes('owner'));
   });
 
   test('handles empty messages with only header', () => {
@@ -80,7 +80,7 @@ describe('formatThreadAsMarkdown', () => {
 
     const md = formatThreadAsMarkdown(thread, messages);
 
-    assert.ok(md.includes('铲屎官'));
+    assert.ok(md.includes('owner'));
     assert.ok(md.includes('布偶猫'));
     assert.ok(md.includes('缅因猫'));
     assert.ok(md.includes('请问一下'));
@@ -119,7 +119,7 @@ describe('formatThreadAsText', () => {
     const thread = makeThread({ title: '纯文本测试', participants: ['opus'] });
     const messages = [
       makeMessage({ content: '你好布偶猫', timestamp: new Date('2026-02-07T10:30:00').getTime() }),
-      makeMessage({ catId: 'opus', content: '你好铲屎官！', timestamp: new Date('2026-02-07T10:31:00').getTime(), id: 'msg-2' }),
+      makeMessage({ catId: 'opus', content: '你好owner！', timestamp: new Date('2026-02-07T10:31:00').getTime(), id: 'msg-2' }),
     ];
 
     const txt = formatThreadAsText(thread, messages);
@@ -134,7 +134,7 @@ describe('formatThreadAsText', () => {
 
     // Should include message content
     assert.ok(txt.includes('你好布偶猫'));
-    assert.ok(txt.includes('你好铲屎官！'));
+    assert.ok(txt.includes('你好owner！'));
   });
 
   test('handles empty messages', () => {
